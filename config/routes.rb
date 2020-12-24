@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  root "message#index"
-  get "/message", to: "message#index"
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root "messages#index"
+  
+  # get "/message", to: "message#index"
+
+  # route param captures segment of request parth 
+  # and puts into param (xxx/message/1 >> id=1)
+  # get "/message/:id", to: "message#show" # READ
+
+  resources :messages
+
 end

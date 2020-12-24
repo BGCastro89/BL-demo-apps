@@ -1,0 +1,12 @@
+<!-- cRud: READ = SHOW-->
+<h1> <%= @message.title %></h1>
+
+<p> <%= @message.body.gsub(/\n/, '<br/>') %> </p>
+
+<ul>
+    <li> <%= link_to 'Edit', edit_message_path(@message) %> </li>
+    <li> <%= link_to "Destroy", message_path(@message),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %></li> 
+    <!-- Above is powered by "a feature of Rails called Unobtrusive JavaScript "> -->
+</ul>

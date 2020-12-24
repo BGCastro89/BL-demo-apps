@@ -1,0 +1,30 @@
+<!-- 
+Templating with partials
+Because the code for edit and new be the same, we're going to factor it out into a shared view called a PARTIAL. 
+-->
+
+<%= form_with model: message do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <%= message.errors.full_messages_for(:title).each do |othermessage| %>
+      <div><%= othermessage %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <%= message.errors.full_messages_for(:body).each do |othermessage| %>
+      <div><%= othermessage %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<!-- Note sames as new EXCEPT with message instead of @message 
+b/c dont depend on specific instance vars set by controller
+so pass message to the partial as a local var -->

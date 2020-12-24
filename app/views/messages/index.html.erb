@@ -1,0 +1,17 @@
+<h1>Messages#index</h1>
+
+<ul>
+    <% @messages.each do |message| %>
+        <li>
+            <!--  <a href="/message <% message.id %>"> -->
+            <!-- <a href="<%= message_path(message)%>%">
+                <%= message.title %>
+            </a> -->
+            <%= link_to message.title, message %>
+        </li>
+    <% end %>
+</ul>
+
+
+
+<%= link_to "New msg", new_message_path %>
